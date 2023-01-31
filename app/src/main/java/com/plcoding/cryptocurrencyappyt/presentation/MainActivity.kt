@@ -1,19 +1,42 @@
-package com.plcoding.cryptocurrencyappyt
+package com.cryptocurrencyapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import com.plcoding.cryptocurrencyappyt.presentation.theme.CryptocurrencyAppYTTheme
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.cryptocurrencyapp.presentation.theme.CryptocurrencyAppYTTheme
+import com.cryptocurrencyapp.presentation.Screen
+import dagger.hilt.android.AndroidEntryPoint
+import com.cryptocurrencyappyt.presentation.coin_list.CoinListScreen
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             CryptocurrencyAppYTTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screen.CoinListScreen.route
+                    ) {
+                        composable(
+                            route = Screen.CoinListScreen.route
+                        ) {
+                            CoinListScreen(navController)
+                        }
+                        composable(
+                            route = Screen.CoinDetailScreen.route + "/{coinId}"
+                        ) {
+                            Screen.CoinDetailScreen
+                        }
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.plcoding.cryptocurrencyappyt.data.remote.dto
+package com.cryptocurrencyapp.data.remote.dto
 
 data class Tag(
     val coin_counter: Int,

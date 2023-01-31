@@ -1,3 +1,9 @@
-package com.plcoding.cryptocurrencyappyt.domain.model
+package com.cryptocurrencyapp.domain.model
 
-data class Coin()
+data class Coin(
+    val id: String,
+    val isActive: Boolean,
+    val name: String,
+    val rank: Int,
+    val symbol: String,
+)

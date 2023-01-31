@@ -1,4 +1,4 @@
-package com.plcoding.cryptocurrencyappyt.presentation.theme
+package com.cryptocurrencyapp.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
